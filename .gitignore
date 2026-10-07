@@ -1,0 +1,24 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+#pytest
+.pytest_cache/
+
+#html报告
+reports/*.html
+reports/*.json
+
+#模型文件
+models/
+
+#IDE
+.idea/
+.vscode/
+
+#操作系统
+.DS_Store
+Thumbs.db

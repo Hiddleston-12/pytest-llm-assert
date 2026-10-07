@@ -1,0 +1,130 @@
+{
+  "test_refund_response::grounded_in::我们支持7天无理由退款。但是定制商品不支持无理由退款，质量问": {
+    "test": "test_refund_response",
+    "assertion": "grounded_in",
+    "target": "我们支持7天无理由退款。但是定制商品不支持无理由退款，质量问",
+    "score": 0.9101,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:07"
+  },
+  "test_refund_response::mentions::退款": {
+    "test": "test_refund_response",
+    "assertion": "mentions",
+    "target": "退款",
+    "score": 0.7477,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:07"
+  },
+  "test_refund_response::tone::专业": {
+    "test": "test_refund_response",
+    "assertion": "tone",
+    "target": "专业",
+    "score": 0.6521,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:08"
+  },
+  "test_refund_response::not_mentions::比竞品便宜": {
+    "test": "test_refund_response",
+    "assertion": "not_mentions",
+    "target": "比竞品便宜",
+    "score": 0.4673,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:08"
+  },
+  "test_refund_not_support_response::grounded_in::我们支持7天无理由退款。但是定制商品不支持无理由退款，质量问": {
+    "test": "test_refund_not_support_response",
+    "assertion": "grounded_in",
+    "target": "我们支持7天无理由退款。但是定制商品不支持无理由退款，质量问",
+    "score": 0.5467,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:10"
+  },
+  "test_refund_not_support_response::mentions::定制产品不支持": {
+    "test": "test_refund_not_support_response",
+    "assertion": "mentions",
+    "target": "定制产品不支持",
+    "score": 0.7562,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:10"
+  },
+  "test_shipping_response::grounded_in::订单发货后预计3个工作日内送达。物流信息可在订单详情页查看。": {
+    "test": "test_shipping_response",
+    "assertion": "grounded_in",
+    "target": "订单发货后预计3个工作日内送达。物流信息可在订单详情页查看。",
+    "score": 0.4642,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:12"
+  },
+  "test_shipping_response::mentions::物流信息": {
+    "test": "test_shipping_response",
+    "assertion": "mentions",
+    "target": "物流信息",
+    "score": 0.7373,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:12"
+  },
+  "test_shipping_response::tone::专业": {
+    "test": "test_shipping_response",
+    "assertion": "tone",
+    "target": "专业",
+    "score": 0.7637,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:13"
+  },
+  "test_complain_response::tone::专业": {
+    "test": "test_complain_response",
+    "assertion": "tone",
+    "target": "专业",
+    "score": 0.753,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:14"
+  },
+  "test_complain_response_warmhearted::tone::共情": {
+    "test": "test_complain_response_warmhearted",
+    "assertion": "tone",
+    "target": "共情",
+    "score": 0.0,
+    "status": "failed",
+    "timestamp": "2026-10-07T17:10:15"
+  },
+  "test_not_ground::grounded_in::我们支持7天无理由退款。但是定制商品不支持无理由退款，质量问": {
+    "test": "test_not_ground",
+    "assertion": "grounded_in",
+    "target": "我们支持7天无理由退款。但是定制商品不支持无理由退款，质量问",
+    "score": 0.0,
+    "status": "failed",
+    "timestamp": "2026-10-07T17:10:17"
+  },
+  "test_competitors::not_mentions::比竞品便宜": {
+    "test": "test_competitors",
+    "assertion": "not_mentions",
+    "target": "比竞品便宜",
+    "score": 0.0559,
+    "status": "failed",
+    "timestamp": "2026-10-07T17:10:17"
+  },
+  "test_mention_info[\\u6211\\u60f3\\u9000\\u6b3e-\\u9000\\u6b3e]::mentions::退款": {
+    "test": "test_mention_info[\\u6211\\u60f3\\u9000\\u6b3e-\\u9000\\u6b3e]",
+    "assertion": "mentions",
+    "target": "退款",
+    "score": 0.7477,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:17"
+  },
+  "test_mention_info[\\u53d1\\u8d27\\u4e86\\u5417-\\u7269\\u6d41\\u4fe1\\u606f]::mentions::物流信息": {
+    "test": "test_mention_info[\\u53d1\\u8d27\\u4e86\\u5417-\\u7269\\u6d41\\u4fe1\\u606f]",
+    "assertion": "mentions",
+    "target": "物流信息",
+    "score": 0.7373,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:17"
+  },
+  "test_mention_info[\\u5b9a\\u5236\\u5546\\u54c1\\u8981\\u9000\\u6b3e-\\u65e0\\u7406\\u7531\\u9000\\u6362]::mentions::无理由退换": {
+    "test": "test_mention_info[\\u5b9a\\u5236\\u5546\\u54c1\\u8981\\u9000\\u6b3e-\\u65e0\\u7406\\u7531\\u9000\\u6362]",
+    "assertion": "mentions",
+    "target": "无理由退换",
+    "score": 0.6995,
+    "status": "passed",
+    "timestamp": "2026-10-07T17:10:17"
+  }
+}

@@ -1,0 +1,81 @@
+name: LLM Tests
+
+on:
+  push:
+    branches: [main,master]
+  pull_request:
+    branches: [main,master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps :
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Cache HuggingFace models
+        uses: actions/cache@v4
+        with:
+          path:
+           ~/.cache/huggingface
+           ./models
+          key: hf-models-${{ runner.os }}-v1
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest-html
+          
+
+      - name: Download NLI model
+        env:
+          HF_ENDPOINT: https://hf-mirror.com
+        run: |
+          python -c "
+          from huggingface_hub import snapshot_download
+          snapshot_download(
+              repo_id='MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7',
+              local_dir='./models/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7',
+              local_dir_use_symlinks=False,
+          )
+          "
+      - name: Preload sentence-transformer model
+        env:
+          HF_ENDPOINT: https://hf-mirror.com
+        run: |
+          python -c "
+                    from sentence_transformers import SentenceTransformer
+                    SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+                    "
+
+      - name: Run tests eith baseline compare
+        env:
+          HF_ENDPOINT: https://hf-mirror.com
+        run: |
+          pytests tests/ \
+          test_customer_service.py \
+          --llm-compare-baseline \
+          --html=reports/report.html \
+          --self-contained-html \
+          -v
+        continue-on-error: true
+
+      - name: Upload HTML report
+        uses: action/upload-arttifact@v4
+        if: always()
+        with:
+          name: llm-set-report
+          path: reports/report.html
+          retention-days: 30
+
+      - name: Fail if drift detected
+        run: |
+          pytest tests/test_customer_service.py --llm-compare-baseline -q

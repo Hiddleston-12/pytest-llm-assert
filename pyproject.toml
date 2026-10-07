@@ -1,0 +1,36 @@
+#安装说明
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+#详细信息
+[project]
+name = "pytest-llm-assert"
+version = "0.1.0"
+description = "A pytest plugin for LLM behavior assertions"
+requires-python = ">=3.9"
+dependencies = [
+    "pytest>=7.0",
+    "pytest-html>=4.2.0",
+    "sentence-transformers>=2.2.0",
+    "transformers>=4.30",
+    "huggingface_hub>=1.5.0,<2.0",
+]
+#插件入口
+[project.entry-points.pytest11]
+llm_assert = "pytest_llm_assert.plugin"
+
+[tool.setuptools]
+packages = ["pytest_llm_assert"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts=[
+    "--html=reports/report.html",
+    "--self-contained-html",
+    "--strict-markers"
+]
+markers=[
+    "drift:漂移检测相关测试",
+    "slow:加载模型较慢的测试"
+]
