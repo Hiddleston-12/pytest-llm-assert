@@ -51,13 +51,13 @@ class BaselineCompare:
         #sys.stderr.write("\n>>> compare() 被调用了！\n")
         #sys.stderr.flush()  compare 确认被调用
         import sys
-        sys.stderr.write(f"\n=== baseline keys ({len(self.baseline)}) ===\n")
-        for k in self.baseline:
-            sys.stderr.write(f"  {k}\n")
-        sys.stderr.write(f"\n=== current keys ({len(self.current)}) ===\n")
-        for k in self.current:
-            sys.stderr.write(f"  {k}\n")
-        sys.stderr.flush()
+        # sys.stderr.write(f"\n=== baseline keys ({len(self.baseline)}) ===\n")
+        # for k in self.baseline:
+        #     sys.stderr.write(f"  {k}\n")
+        # sys.stderr.write(f"\n=== current keys ({len(self.current)}) ===\n")
+        # for k in self.current:
+        #     sys.stderr.write(f"  {k}\n")
+        # sys.stderr.flush()
         for key,cur in self.current.items():
             base=self.baseline.get(key)
             if base is None:

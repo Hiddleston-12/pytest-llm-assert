@@ -49,7 +49,7 @@ class BehaviorAssertion:
         self._record("not_mentions", target, normalized_score, status)
         if score >= threshold:
             raise AssertionError(
-                f"\n[llm-assert] mentions 断言失败\n"
+                f"\n[llm-assert] not_mentions 断言失败\n"
                 f"  目标短语 : {target}\n"
                 f"  实际输出 : {self._output}\n"
                 f"  相似度   : {score:.3f}（阈值 {threshold}）\n"

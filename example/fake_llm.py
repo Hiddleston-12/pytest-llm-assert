@@ -16,7 +16,7 @@ def fake_llm(prompt:str)->str:
     if "退款" in prompt:
         return (
             "我们支持7天无理由退款，您可以在订单页面申请退款。"
-            "非常抱歉没能满足您的需求，我完全理解您的心情。"    #加入ungrounded，制造漂移
+            #example/fake_llm.py"非常抱歉没能满足您的需求，我完全理解您的心情。"    #加入ungrounded，制造漂移
 
         )
     if "发货"in prompt or "快递" in prompt:
