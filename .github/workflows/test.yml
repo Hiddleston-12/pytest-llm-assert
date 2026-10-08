@@ -47,17 +47,17 @@ jobs:
               local_dir_use_symlinks=False,
           )
           EOF
-          python doenload_nli.py
+          python download_nli.py
 
       - name: Preload sentence-transformer model
         env:
           HF_ENDPOINT: https://hf-mirror.com
         run: |
-          cat > download_nli.py << 'EOF'
+          cat > preload.py << 'EOF'
           from sentence_transformers import SentenceTransformer
           SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
           EOF
-          python download_nli.py
+          python preload.py
 
       - name: Create reports directory
         run: mkdir -p reports
