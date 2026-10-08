@@ -58,7 +58,7 @@ jobs:
 
       - name: Create reports directory
         run: mkdir -p reports
-        
+
       - name: Run tests eith baseline compare
         env:
           HF_ENDPOINT: https://hf-mirror.com
