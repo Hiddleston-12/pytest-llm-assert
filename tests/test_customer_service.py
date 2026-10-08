@@ -5,7 +5,7 @@ from pytest_llm_assert import assertions
 
 使用 pytest.mark.parametrize 覆盖多个场景
 """
-@pytest.mark.xfail
+
 def test_refund_response(ask_llm,refund_policy,llm_recorder):
  # ---------------------退货场景---------------------
    """
@@ -87,6 +87,7 @@ def test_not_ground(ask_llm, refund_policy,llm_recorder):
    grounded_in(refund_policy)
   )
 #---------------------竞品场景---------------------
+@pytest.mark.xfail
 def test_competitors(ask_llm, refund_policy,llm_recorder):
   """
    不能出现竞品，验证not_mention
