@@ -1,14 +1,12 @@
 from sentence_transformers import SentenceTransformer, util
 from pathlib import Path
-model_path = Path(__file__).parent.parent/ "models" / "paraphrase-multilingual-MiniLM-L12-v2"
-_model = SentenceTransformer(str(model_path))
-
+_model= None
 
 def _get_model():
     """懒加载模型，只在第一次调用时下载和加载。"""
     global _model
     if _model is None:
-        print("模型加载中")
+        # print("模型加载中")
         # all-MiniLM-L6-v2 只有约 80MB，CPU 就能跑，适合 CI
         _model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
     return _model
