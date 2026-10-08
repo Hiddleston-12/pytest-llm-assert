@@ -40,8 +40,7 @@ jobs:
           HF_ENDPOINT: https://hf-mirror.com
         run: |
           python -c "
-          from huggingface_hub import snapshot_download
-          snapshot_download(
+          from huggingface_hub import snapshot_download; snapshot_download(
               repo_id='MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7',
               local_dir='./models/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7',
               local_dir_use_symlinks=False,
@@ -52,8 +51,7 @@ jobs:
           HF_ENDPOINT: https://hf-mirror.com
         run: |
           python -c "
-                    from sentence_transformers import SentenceTransformer
-                    SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+                    from sentence_transformers import SentenceTransformer; SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
                     "
 
       - name: Create reports directory
