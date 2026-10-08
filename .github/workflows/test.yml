@@ -39,20 +39,25 @@ jobs:
         env:
           HF_ENDPOINT: https://hf-mirror.com
         run: |
-          python -c "
-          from huggingface_hub import snapshot_download; snapshot_download(
+          cat > download_nli.py << 'EOF'
+          from huggingface_hub import snapshot_download 
+          snapshot_download(
               repo_id='MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7',
               local_dir='./models/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7',
               local_dir_use_symlinks=False,
           )
-          "
+          EOF
+          python doenload_nli.py
+
       - name: Preload sentence-transformer model
         env:
           HF_ENDPOINT: https://hf-mirror.com
         run: |
-          python -c "
-                    from sentence_transformers import SentenceTransformer; SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-                    "
+          cat > download_nli.py << 'EOF'
+          from sentence_transformers import SentenceTransformer
+          SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+          EOF
+          python download_nli.py
 
       - name: Create reports directory
         run: mkdir -p reports
